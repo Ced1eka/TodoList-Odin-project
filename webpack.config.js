@@ -15,6 +15,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].bundle.js",
+    assetModuleFilename: '[name][ext][query]',
     clean: true,
   },
   devServer: {

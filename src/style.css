@@ -23,14 +23,45 @@ ion-icon {
 .task-label{
   width: 100%;
   display: flex;
-  border: 2px solid green;
+  border: 1px solid green;
   justify-content: space-around;
 }
 .flex {
   display: flex;
   align-items: center;
 }
-#task-option{
-  background-color: transparent;
-  border: none;
+
+.grid{
+  display: grid;
+}
+.sidebar{
+  flex-direction: column;
+  align-items: flex-start;
+}
+.project-options, .user-task-option{
+flex-direction: column;
+  border: 2px solid yellow;
+align-items: flex-start;
+}
+
+.top-panel{
+  border: 1px solid greenyellow;
+  min-width: 100%;
+  justify-content: space-around;
+}
+.User{
+  border: 1px solid blue;
+}
+.sidebar-options{
+  border: 1px solid red;
+  justify-self: flex-end;
+}
+.User img{
+border-radius: 50%;
+width: 70px;
+aspect-ratio: 1;
+}
+
+button:active{
+  background-color: lightblue;
 }
