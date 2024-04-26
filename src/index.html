@@ -11,7 +11,49 @@
     ></script>
   </head>
   <body>
-    <div class="content">
+    <div class="content flex">
+      <div class="sidebar flex">
+        <div class="top-panel flex">
+          <div class="User flex">
+            <img src="./userProfile.png" alt="profile picture" />
+            <button class="flex">
+              User
+              <ion-icon
+                name="chevron-down-outline"
+                id="chevron-down-outline"
+              ></ion-icon>
+            </button>
+          </div>
+          <div class="sidebar-options flex">
+            <button>
+              <ion-icon name="notifications-outline"></ion-icon>
+            </button>
+            <button>
+              <ion-icon name="menu-outline"></ion-icon>
+            </button>
+          </div>
+        </div>
+        <div class="project-options flex-column">
+          <button id="star-outline" class="flex">
+            <ion-icon name="star-outline"></ion-icon>
+            view all projects
+          </button>
+          <button id="newProject" class="flex">
+            <ion-icon name="add-circle-outline"></ion-icon>
+            new project
+          </button>
+          <div class="user-task-options flex-column">
+            <button>today</button>
+            <button>upcoming</button>
+            <button>misc</button>
+          </div>
+          <div class="filter-options flex-column">
+            <button>#urgent</button>
+            <button>#urgent</button>
+            <button>#urgent</button>
+          </div>
+        </div>
+      </div>
       <div class="task">
         <div class="task-label">
           <button>Insert witty task/project name HERE</button>
@@ -34,38 +76,6 @@
         <div class="todo">
           <input type="radio" />
           <label for="">DO Something</label>
-        </div>
-      </div>
-      <div class="sidebar flex">
-        <div class="top-panel flex">
-          <div class="User">
-            <img src="./userProfile.png" alt="profile picture" />
-            <button>
-              User
-              <ion-icon name="chevron-down-outline" id=""></ion-icon>
-            </button>
-          </div>
-          <div class="sidebar-options">
-            <ion-icon name="notifications-outline"></ion-icon>
-            <button>
-              <ion-icon name="menu-outline"></ion-icon>
-            </button>
-          </div>
-        </div>
-        <div class="project-options flex">
-          <button id="star-outline">
-            <ion-icon name="star-outline"></ion-icon>
-            view all projects
-          </button>
-          <button>
-            <ion-icon name="add-circle-outline"></ion-icon>
-            new project
-          </button>
-          <div class="user-task-option flex">
-            <button>today</button>
-            <button>upcoming</button>
-            <button>misc</button>
-          </div>
         </div>
       </div>
     </div>
