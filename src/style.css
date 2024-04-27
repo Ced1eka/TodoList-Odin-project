@@ -35,24 +35,28 @@ body {
 
 .content {
   border: 1px solid black;
-  /* width: 100dvw; */
+  width: 100%;
   min-height: 100dvh;
+  align-items: flex-start;
 }
 
 .sidebar {
   flex-direction: column;
   align-items: flex-start;
-  flex: 1.5;
+  flex: 1;
   height: 100dvh;
-  width: 100%;
+  width: inherit;
+  gap: 1rem;
+  padding-top: 2rem;
 }
 .top-panel {
   border: 1px solid red;
-  width: 100%;
-  justify-content: space-around;
+  width: inherit;
+  justify-content: space-between;
 }
 .User {
   border: 1px solid blue;
+  padding-left: 1rem;
   align-items: center;
   gap: 1rem;
 }
@@ -63,11 +67,15 @@ body {
 }
 .User button {
   gap: 0.5rem;
+  padding: 0;
 }
 
 .sidebar-options {
   border: 1px solid red;
   gap: 0.5rem;
+}
+.sidebar-options button{
+  padding: 0;
 }
 .project-options {
   border: 1px solid yellow;
@@ -81,36 +89,50 @@ body {
   width: inherit;
   gap: 0.7rem;
 }
-.user-task-options, .filter-options {
+.user-task-options,
+.filter-options {
   border: 2px solid magenta;
   width: inherit;
   gap: 0.5rem;
   text-align: start;
 }
-.user-task-options button, .filter-options button {
+.user-task-options button,
+.filter-options button {
   width: inherit;
   text-align: start;
 }
 
-
 .task {
-  display: flex;
+  border: 1px solid gold;
   flex-direction: column;
   gap: 1rem;
   flex: 3;
-}
-.todo {
-  display: flex;
-  align-items: start;
-  justify-items: start;
-  padding: 1rem 0 1rem 1rem;
+  height: 100%;
+  width: inherit;
+  align-items: flex-start;
+  margin: 2rem 1.5rem 0 1.5rem;
 }
 
 .task-label {
-  width: 100%;
-  display: flex;
-  border: 1px solid green;
-  justify-content: space-around;
+  width: inherit;
+  border: 1px solid yellowgreen;
+  justify-content: space-between;
+}
+
+.todo {
+  padding: 0.5rem 1.5rem 0.5rem 1rem;
+  border: 1px solid gold;
+  width: inherit;
+}
+.todo p {
+  margin-left: auto;
+}
+.add-new-todo{
+  width: inherit;
+}
+button{
+  padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+  /* width: inherit; */
 }
 
 button:active {

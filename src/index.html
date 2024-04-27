@@ -54,30 +54,39 @@
           </div>
         </div>
       </div>
-      <div class="task">
-        <div class="task-label">
-          <button>Insert witty task/project name HERE</button>
-          <div class="flex">
-            <button id="task-hamburger">
-              <ion-icon name="options-outline" id="options-outline"></ion-icon>
-            </button>
-            <label for="task-hamburger">sort by priority</label>
-          </div>
+      <div class="task flex">
+        <div class="task-label flex">
+          <button class="user-project-header flex">
+            <ion-icon name="chevron-down-circle-outline"></ion-icon>
+            <span>Insert witty task/project name HERE</span>
+          </button>
+          <button class="task-hamburger flex">
+            <ion-icon name="options-outline" id="options-outline"></ion-icon>
+            <span>sort by priority</span>
+          </button>
         </div>
 
-        <div class="todo">
+        <div class="todo flex">
           <input type="radio" />
           <label for="">task one</label>
+          <p>todo type</p>
         </div>
-        <div class="todo">
+        <div class="todo flex">
           <input type="radio" />
           <label for="">TESTING alignments</label>
+          <p>todo type</p>
         </div>
-        <div class="todo">
+        <div class="todo flex">
           <input type="radio" />
           <label for="">DO Something</label>
+          <p>todo type</p>
         </div>
+        <button class="add-new-todo flex">
+          <ion-icon name="add-circle-outline"></ion-icon>
+          <span>new task</span>
+        </button>
       </div>
+      <div class="user-todos-sorted"></div>
     </div>
   </body>
 </html>
