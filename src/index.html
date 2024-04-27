@@ -55,45 +55,55 @@
         </div>
       </div>
       <div class="mainbar flex">
+        <div class="task flex">
+          <div class="task-label">
+            <button class="user-project-header flex">
+              <ion-icon name="chevron-down-circle-outline"></ion-icon>
+              <span>Insert witty task/project name HERE</span>
+            </button>
+            <button class="task-hamburger flex">
+              <ion-icon name="options-outline" id="options-outline"></ion-icon>
+              <span>sort by priority</span>
+            </button>
+          </div>
 
-      <div class="task flex">
-        <div class="task-label flex">
-          <button class="user-project-header flex">
-            <ion-icon name="chevron-down-circle-outline"></ion-icon>
-            <span>Insert witty task/project name HERE</span>
+          <div class="todo flex">
+            <input type="radio" />
+            <label for="">task one</label>
+            <p>todo type</p>
+          </div>
+          <div class="todo flex">
+            <input type="radio" />
+            <label for="">TESTING alignments</label>
+            <p>todo type</p>
+          </div>
+          <div class="todo flex">
+            <input type="radio" />
+            <label for="">DO Something</label>
+            <p>todo type</p>
+          </div>
+          <button class="add-new-todo flex">
+            <ion-icon name="add-circle-outline"></ion-icon>
+            <span>new task</span>
           </button>
-          <button class="task-hamburger flex">
-            <ion-icon name="options-outline" id="options-outline"></ion-icon>
-            <span>sort by priority</span>
-          </button>
         </div>
-
-        <div class="todo flex">
-          <input type="radio" />
-          <label for="">task one</label>
-          <p>todo type</p>
+        <div class="user-todos-sorted">
+          <a href=""><span>#urgent</span></a>
         </div>
-        <div class="todo flex">
-          <input type="radio" />
-          <label for="">TESTING alignments</label>
-          <p>todo type</p>
-        </div>
-        <div class="todo flex">
-          <input type="radio" />
-          <label for="">DO Something</label>
-          <p>todo type</p>
-        </div>
-        <button class="add-new-todo flex">
-          <ion-icon name="add-circle-outline"></ion-icon>
-          <span>new task</span>
-        </button>
       </div>
-      <div class="user-todos-sorted">
-        <a href=""><span>#urgent</span></a>
+      <div>
+        <dialog class="modal">
+          <input id="newTask" type="text" placeholder="Task description" />
+          <select name="type" id="task-type">
+            <option value="coding">Coding</option>
+            <option value="daily">Daily</option>
+            <option value="food">Food</option>
+            <option value="work">Work</option>
+          </select>
+
+          <button>submit</button>
+        </dialog>
       </div>
-    </div>
-
-
     </div>
   </body>
 </html>
