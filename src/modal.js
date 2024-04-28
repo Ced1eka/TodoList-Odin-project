@@ -1,7 +1,13 @@
-import './mainbar.js'
-
 const modal = document.querySelector(".modal");
 const modalContent = document.querySelector(".modal-content");
+const modalSubmit = document.getElementById('modalSubmit');
+
+
+modalSubmit.addEventListener('click', ()=>{
+  // should take in all values from the input and select elements
+  // and pass them onto the newtask.js module
+  modal.style.display = 'none';
+})
 
 function showModal() {
   modal.style.display = "block";
@@ -13,19 +19,5 @@ window.onclick = function (event) {
     console.log("clicked!");
   }
 };
-const btns = document.querySelectorAll(".add-new-todo");
 
-btns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    console.log("yoe");
-    showModal();
-    modalContent.show();
-  });
-});
-// btn.addEventListener('click',()=>{
-//       console.log('yo beeee')
-//       showModal();
-//   modalContent.show()
-
-// })
-export { showModal, modalContent, btns };
+export { showModal, modalContent};

@@ -1,4 +1,6 @@
+import * as modals from './modal.js'
 //replace body with content later on
+
 const body = document.querySelector("body");
 const mainbar = document.createElement("div");
 mainbar.className = "mainbar2";
@@ -37,7 +39,7 @@ sortBy.textContent = "sort by insert here";
 taskHamburger.appendChild(ionOptions);
 taskHamburger.appendChild(sortBy);
 
-const addTodo = document.createElement('button');
+export const addTodo = document.createElement('button');
 addTodo.className = 'add-new-todo flex';
 
 const ionPlusCircle = document.createElement('ion-icon');
@@ -61,3 +63,13 @@ task.appendChild(addTodo);
 const userTodos = document.createElement("div");
 userTodos.className = "user-todos-sorted";
 mainbar.appendChild(userTodos);
+
+const btns = document.querySelectorAll(".add-new-todo");
+
+btns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    console.log(btn);
+    modals.showModal();
+    modals.modalContent.show();
+  });
+});
