@@ -1,12 +1,13 @@
-import * as modals from './modal.js'
+import {showModal, modalContent} from './modal.js'
+
 //replace body with content later on
 
-const body = document.querySelector("body");
+const content = document.querySelector(".content");
 const mainbar = document.createElement("div");
-mainbar.className = "mainbar2";
-body.appendChild(mainbar);
+mainbar.classList.add('mainbar', 'flex');
+content.appendChild(mainbar);
 
-const task = document.createElement("div");
+export const task = document.createElement("div");
 task.className = "task flex";
 mainbar.appendChild(task);
 
@@ -64,12 +65,14 @@ const userTodos = document.createElement("div");
 userTodos.className = "user-todos-sorted";
 mainbar.appendChild(userTodos);
 
+
+// when the new task button is clicked shows modal
 const btns = document.querySelectorAll(".add-new-todo");
 
 btns.forEach((btn) => {
   btn.addEventListener("click", () => {
-    console.log(btn);
-    modals.showModal();
-    modals.modalContent.show();
+    // console.log(sampleTask);
+    showModal();
+    modalContent.show();
   });
 });

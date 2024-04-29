@@ -1,12 +1,9 @@
-class CreateTask {
+export class CreateTask {
+  constructor(taskDescriptionValue, taskTypeValue, taskPriorityValue) {
+    this.taskDescriptionValue = taskDescriptionValue;
+    this.taskTypeValue = taskTypeValue;
+    this.taskPriorityValue = taskPriorityValue;
+  }
 
-      constructor(description, type, urgency){
-            this.description = description
-            this.type = type
-            this.urgency =urgency
-      }
-
-      addNewTask (){
-
-      }
+  // addNewTask() {}
 }
