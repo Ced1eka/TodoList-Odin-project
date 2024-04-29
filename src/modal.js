@@ -5,7 +5,6 @@ const modal = document.querySelector(".modal");
 const modalContent = document.querySelector(".modal-content");
 const modalSubmit = document.getElementById("modalSubmit");
 
-
 function showModal() {
   modal.style.display = "block";
 }
@@ -15,57 +14,62 @@ window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
     modal.style.display = "none";
-    console.log("clicked!");
   }
 };
 
-
 //handles modal submit button and stores values
 const modalSubmitted = modalSubmit.addEventListener("click", () => {
-  // should take in all values from the input and select elements
-  // and pass them onto the newtask.js module
+  //get the input and select elements
   const taskDescription = modalContent.querySelector("#newTask");
   const taskType = modalContent.querySelector("#task-type");
   const taskPriority = modalContent.querySelector("#task-priority");
-
+  //store values inside variables
   const taskDescriptionValue = taskDescription.value;
   const taskTypeValue = taskType.value;
   const taskPriorityValue = taskPriority.value;
 
+  //create new class using values
+  const newtododo = new CreateTask(
+    taskDescriptionValue,
+    taskTypeValue,
+    taskPriorityValue
+  );
 
-  const newtododo = new CreateTask(taskDescriptionValue, taskTypeValue,taskPriorityValue)
+  //create new todo element
+  const todoDiv = document.createElement("div");
+  todoDiv.classList.add("todo", "flex");
 
+  const input = document.createElement("input");
+  input.setAttribute("type", "radio");
 
+  const label = document.createElement("label");
+  label.setAttribute("for", "");
+  label.textContent = taskDescriptionValue;
+
+  const todoPriority = document.createElement("p");
+  todoPriority.textContent = taskPriorityValue;
+
+  const todoType = document.createElement("p");
+  todoType.textContent = `#${taskTypeValue}`;
+
+  // Append input, label, and p elements to the todo div
+  todoDiv.appendChild(input);
+  todoDiv.appendChild(label);
+  todoDiv.appendChild(todoPriority);
+  todoDiv.appendChild(todoType);
+
+  task.insertBefore(todoDiv, addTodo);
+
+  //close modal after clicking submit button
   modalContent.close();
+  if (modalContent.open === false) {
+    taskDescription.value = "";
+    taskType.value = "";
+    taskPriority.value = "";
+  }
   modal.style.display = "none";
 
-  const todoDiv = document.createElement('div');
-todoDiv.classList.add('todo', 'flex');
-
-const input = document.createElement('input');
-input.setAttribute('type', 'radio');
-
-const label = document.createElement('label');
-label.setAttribute('for', '');
-label.textContent = taskDescriptionValue;
-
-const p = document.createElement('p');
-p.textContent = taskTypeValue;
-
-// Append input, label, and p elements to the todo div
-todoDiv.appendChild(input);
-todoDiv.appendChild(label);
-todoDiv.appendChild(p);
-
-task.insertBefore(todoDiv, addTodo);
-
-
-
+  console.log(todoDiv)
 });
 
-
-
-export {
-  showModal,
-  modalContent,
-};
+export { showModal, modalContent };
