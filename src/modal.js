@@ -1,13 +1,18 @@
 import { CreateTask } from "./newtask";
 import { addTodo, task } from "./mainbar";
-import { createNewTodoElement } from "./appendNewTodo";
 
 const modal = document.querySelector(".modal");
 const modalContent = document.querySelector(".modal-content");
 const modalSubmit = document.getElementById("modalSubmit");
 
+
+let parentTaskDiv;
+
 function showModal() {
   modal.style.display = "block";
+   // Find the parent task flex div
+   const addTodoButton = document.activeElement;
+   parentTaskDiv = addTodoButton.closest(".task");
 }
 
 //closes both modal and it's container
@@ -19,7 +24,7 @@ window.onclick = function (event) {
 };
 
 //handles modal submit button and stores values
-const modalSubmitted = modalSubmit.addEventListener("click", () => {
+export const modalSubmitted = modalSubmit.addEventListener("click", () => {
   //get the input and select elements
   const taskDescription = modalContent.querySelector("#newTask");
   const taskType = modalContent.querySelector("#task-type");
@@ -36,9 +41,10 @@ const modalSubmitted = modalSubmit.addEventListener("click", () => {
     taskPriorityValue
   );
 
-// const todoDiv = createNewTodoElement(taskDescriptionValue,taskPriorityValue,taskTypeValue)
 
-task.insertBefore(newtododo.addNewTask(), addTodo);
+  parentTaskDiv.insertBefore(newtododo.addNewTask(), parentTaskDiv.querySelector(".add-new-todo"));
+
+  // task.insertBefore(newtododo.addNewTask(), addTodo);
 
   //close modal after clicking submit button
   modalContent.close();
@@ -49,7 +55,7 @@ task.insertBefore(newtododo.addNewTask(), addTodo);
   }
   modal.style.display = "none";
 
-  console.log(typeof newtododo, newtododo)
+  console.log(typeof newtododo, newtododo);
 });
 
 export { showModal, modalContent };

@@ -1,78 +1,67 @@
+import { appendProjectTask } from './newProjectTask.js';
 import {showModal, modalContent} from './modal.js'
+
 
 //replace body with content later on
 
 const content = document.querySelector(".content");
-const mainbar = document.createElement("div");
+ const mainbar = document.createElement("div");
 mainbar.classList.add('mainbar', 'flex');
 content.appendChild(mainbar);
 
-export const task = document.createElement("div");
-task.className = "task flex";
+function bindAddTodoEventListeners() {
+  const addTodoButtons = document.querySelectorAll(".add-new-todo");
+  addTodoButtons.forEach(button => {
+      button.addEventListener("click", () => {
+          showModal();
+
+      });
+  });
+}
+
+
+export const {task, addTodo,btn} = appendProjectTask();
 mainbar.appendChild(task);
+bindAddTodoEventListeners();
 
-const taskLabel = document.createElement("div");
-taskLabel.className = "task-label";
-
-
-
-const userProjectHeader = document.createElement("button");
-userProjectHeader.className = "user-project-header flex";
-
-const ionChev = document.createElement("ion-icon");
-ionChev.setAttribute("name", "chevron-down-circle-outline");
-
-const spanHeader = document.createElement("span");
-spanHeader.textContent = "Insert witty task/project name HERE";
-
-userProjectHeader.appendChild(ionChev);
-userProjectHeader.appendChild(spanHeader);
-
-const taskHamburger = document.createElement("button");
-taskHamburger.className = "task-hamburger flex";
-
-const ionOptions = document.createElement("ion-icon");
-ionOptions.setAttribute("name", "options-outline");
-
-const sortBy = document.createElement("span");
-sortBy.textContent = "sort by insert here";
-
-taskHamburger.appendChild(ionOptions);
-taskHamburger.appendChild(sortBy);
-
-export const addTodo = document.createElement('button');
-addTodo.className = 'add-new-todo flex';
-
-const ionPlusCircle = document.createElement('ion-icon');
-ionPlusCircle.setAttribute('name', 'add-circle-outline');
-
-const spanTodo = document.createElement('span');
-spanTodo.textContent = 'new task';
-
-addTodo.appendChild(ionPlusCircle);
-addTodo.appendChild(spanTodo);
-
-taskLabel.appendChild(userProjectHeader);
-taskLabel.appendChild(taskHamburger);
+ Array.from(btn).forEach(button => {
+  button.addEventListener('click', () => {
+      showModal();
+      modalContent.show();
+  });
+});
 
 
-// add code here to dynamically create new todo items when addTodo is clicked
+const btnNewProject = document.getElementById('newProject');
+btnNewProject.addEventListener('click',()=>{
+ const {task, addTodo,btn} = appendProjectTask();
+mainbar.appendChild(task);
+bindAddTodoEventListeners();
 
-task.appendChild(taskLabel);
-task.appendChild(addTodo);
+
+Array.from(btn).forEach(button => {
+  button.addEventListener('click', () => {
+let parentTaskDiv;
+const addTodoButton = document.activeElement;
+parentTaskDiv = addTodoButton.closest(".task");
+      showModal();
+      modalContent.show();
+  });
+});
+// const btns = document.querySelectorAll(".add-new-todo");
+Array.from(addTodo).forEach((button) => {
+  button.addEventListener("click", () => {
+
+    showModal();
+    modalContent.show();
+    console.log(parentDiv); // Check if parentTaskDiv is correct
+  });
+});
+
+})
+
+
 
 const userTodos = document.createElement("div");
 userTodos.className = "user-todos-sorted";
 mainbar.appendChild(userTodos);
-
-
-// when the new task button is clicked shows modal
-const btns = document.querySelectorAll(".add-new-todo");
-
-btns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    // console.log(sampleTask);
-    showModal();
-    modalContent.show();
-  });
-});
