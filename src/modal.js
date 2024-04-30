@@ -1,5 +1,6 @@
 import { CreateTask } from "./newtask";
 import { addTodo, task } from "./mainbar";
+import { createNewTodoElement } from "./appendNewTodo";
 
 const modal = document.querySelector(".modal");
 const modalContent = document.querySelector(".modal-content");
@@ -35,30 +36,9 @@ const modalSubmitted = modalSubmit.addEventListener("click", () => {
     taskPriorityValue
   );
 
-  //create new todo element
-  const todoDiv = document.createElement("div");
-  todoDiv.classList.add("todo", "flex");
+// const todoDiv = createNewTodoElement(taskDescriptionValue,taskPriorityValue,taskTypeValue)
 
-  const input = document.createElement("input");
-  input.setAttribute("type", "radio");
-
-  const label = document.createElement("label");
-  label.setAttribute("for", "");
-  label.textContent = taskDescriptionValue;
-
-  const todoPriority = document.createElement("p");
-  todoPriority.textContent = taskPriorityValue;
-
-  const todoType = document.createElement("p");
-  todoType.textContent = `#${taskTypeValue}`;
-
-  // Append input, label, and p elements to the todo div
-  todoDiv.appendChild(input);
-  todoDiv.appendChild(label);
-  todoDiv.appendChild(todoPriority);
-  todoDiv.appendChild(todoType);
-
-  task.insertBefore(todoDiv, addTodo);
+task.insertBefore(newtododo.addNewTask(), addTodo);
 
   //close modal after clicking submit button
   modalContent.close();
@@ -69,7 +49,7 @@ const modalSubmitted = modalSubmit.addEventListener("click", () => {
   }
   modal.style.display = "none";
 
-  console.log(todoDiv)
+  console.log(typeof newtododo, newtododo)
 });
 
 export { showModal, modalContent };

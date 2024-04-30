@@ -1,9 +1,19 @@
+import { createNewTodoElement } from "./appendNewTodo";
+
 export class CreateTask {
-  constructor(taskDescriptionValue, taskTypeValue, taskPriorityValue) {
+  constructor(taskDescriptionValue, taskPriorityValue, taskTypeValue) {
     this.taskDescriptionValue = taskDescriptionValue;
-    this.taskTypeValue = taskTypeValue;
     this.taskPriorityValue = taskPriorityValue;
+    this.taskTypeValue = taskTypeValue;
   }
 
-  // addNewTask() {}
+  addNewTask() {
+    const newTodoElement = createNewTodoElement(
+      this.taskDescriptionValue,
+      this.taskPriorityValue,
+      this.taskTypeValue
+    );
+
+    return newTodoElement;
+  }
 }
