@@ -1,10 +1,16 @@
 import { CreateTask } from "./newtask";
+// import { sesh } from "./taskStorage";
+
+
 
 const modal = document.querySelector(".modal");
 const modalContent = document.querySelector(".modal-content");
 const modalSubmit = document.getElementById("modalSubmit");
 
 let parentTaskDiv;
+
+
+
 
 function showModal() {
   modal.style.display = "block";
@@ -38,6 +44,10 @@ modalSubmit.addEventListener("click", () => {
     taskTypeValue,
     taskPriorityValue
   );
+
+  // console.log(sesh)
+
+
 
   parentTaskDiv.insertBefore(
     newtododo.addNewTask(),

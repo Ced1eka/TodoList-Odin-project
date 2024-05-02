@@ -1,6 +1,7 @@
 import { appendProjectTask } from "./newProjectTask.js";
 import { showModal, modalContent } from "./modal.js";
 
+
 //get content and append mainbar
 const content = document.querySelector(".content");
 const mainbar = document.createElement("div");
@@ -11,6 +12,15 @@ content.appendChild(mainbar);
 export const { task, addTodo } = appendProjectTask();
 //append default project/task on page load
 mainbar.appendChild(task);
+
+const storedItems = sessionStorage.getItem.bind(sessionStorage);
+
+export const stringTodo = {ding:'tool'};
+console.log('i give up this works', storedItems('theObj'))
+
+
+
+
 
 
 addTodo.addEventListener("click", () => {
