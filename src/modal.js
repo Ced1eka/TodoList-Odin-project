@@ -1,15 +1,10 @@
 import { CreateTask } from "./newtask";
-// import { sesh } from "./taskStorage";
-
-
 
 const modal = document.querySelector(".modal");
 const modalContent = document.querySelector(".modal-content");
 const modalSubmit = document.getElementById("modalSubmit");
 
 let parentTaskDiv;
-
-
 
 
 function showModal() {
@@ -45,14 +40,15 @@ modalSubmit.addEventListener("click", () => {
     taskPriorityValue
   );
 
-  // console.log(sesh)
+  const { todoDiv, todoKey } = newtododo.addNewTask();
 
-
-
+  // appends the new todo div element to the nearest element above the new task button
   parentTaskDiv.insertBefore(
-    newtododo.addNewTask(),
+    todoDiv,
     parentTaskDiv.querySelector(".add-new-todo")
   );
+
+
 
   //close modal after clicking submit button
   modalContent.close();
@@ -62,7 +58,6 @@ modalSubmit.addEventListener("click", () => {
     taskPriority.value = "";
   }
   modal.style.display = "none";
-
 });
 
 export { showModal, modalContent };

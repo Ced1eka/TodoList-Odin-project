@@ -47,5 +47,7 @@ export function appendProjectTask() {
   task.appendChild(taskLabel);
   task.appendChild(addTodo);
 
+const taskHTML = task.outerHTML;
+
   return { task, addTodo };
 }
