@@ -8,13 +8,13 @@ export class CreateTask {
   }
 
   addNewTask() {
-    const {todoDiv, todoKey} = createNewTodoElement(
+    const {todoDiv} = createNewTodoElement(
       this.taskDescriptionValue,
       this.taskPriorityValue,
       this.taskTypeValue
     );
 
     // return newTodoElement;
-    return { todoDiv, todoKey };
+    return { todoDiv };
   }
 }

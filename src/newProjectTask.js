@@ -1,6 +1,11 @@
+let idCounter = 0;
+
+
 export function appendProjectTask() {
+  idCounter++;
   const task = document.createElement("div");
   task.className = "task flex";
+  task.id = `task-${idCounter}`;
 
   const taskLabel = document.createElement("div");
   taskLabel.className = "task-label";

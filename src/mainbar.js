@@ -11,33 +11,18 @@ mainbar.classList.add("mainbar", "flex");
 content.appendChild(mainbar);
 
 //get variable from appendProjectTask module
-export const { task, addTodo } = appendProjectTask();
+const { task, addTodo } = appendProjectTask();
 //append default project/task on page load
 mainbar.appendChild(task);
+console.log('this is from default mainbar page load',task.id)
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   // Retrieve the todo element from sessionStorage
-
-//   const retrievedTodoElement = retrieveTodoElementFromStorage();
-//   console.log('from mainbar', retrievedTodoElement);
-
-//   if (retrievedTodoElement && retrievedTodoElement.length > 0) {
-//     // Append the retrieved todo element to a parent element in the DOM
-//     const parentElement = document.querySelector(".task"); // Replace ".task" with the selector for the desired parent element
-//     const referenceNode = parentElement.querySelector(".add-new-todo"); // Select the reference node
-
-//     retrievedTodoElement.forEach((todoEle) =>{
-
-//   parentElement.insertBefore(todoEle, referenceNode);
-// })
-//   }
-// });
-
-
+//appends todo's to each project on page load
 document.addEventListener("DOMContentLoaded", function () {
+
+
   // Retrieve the todo elements from sessionStorage
   const retrievedTodoElements = retrieveTodoElementFromStorage();
-  console.log(retrievedTodoElements)
+  console.log('this is retrievedtodoelements',retrievedTodoElements)
 
   if (retrievedTodoElements.length > 0) {
     // Append the retrieved todo elements to the parent element in reverse order
@@ -50,23 +35,35 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-
-
+//handles creation of new todo divs
 addTodo.addEventListener("click", () => {
   showModal();
   modalContent.show();
 });
 
+//selects new project button and appends a new task div
 const btnNewProject = document.getElementById("newProject");
 btnNewProject.addEventListener("click", () => {
   const { task, addTodo } = appendProjectTask();
-  mainbar.appendChild(task);
+  mainbar.insertBefore(task, userTodos);
+  console.log('this is from inside new project button',task.id)
 
   addTodo.addEventListener("click", () => {
     showModal();
     modalContent.show();
   });
 });
+
+/* basically find a way to isolate each stored todo items to it's own
+project div and on page reload re append them dynamically , right now it
+just appends to the main one so i think i need to set a unique id to each todo
+that it then matches to its own unique project div so it can append properly?
+
+1. generate id for default project div
+
+2. generate id for each dynamically created project div
+
+*/
 
 const userTodos = document.createElement("div");
 userTodos.className = "user-todos-sorted";

@@ -31,22 +31,24 @@
 // }
 
 export function retrieveTodoElementFromStorage() {
-      // Retrieve the serialized HTML string from sessionStorage
-      const parsedTodoDivs = [];
+  //initiate an empty array
+  const parsedTodoDivs = [];
 
-      // Retrieve the array of todo keys from sessionStorage
-      const todoKeys = JSON.parse(sessionStorage.getItem('todoKeys')) || [];
+  //make a variable & get array of todo key from sessionStorage OR
+  //set it as an empty array
+  const todoKeys = JSON.parse(sessionStorage.getItem("todoKeys")) || [];
 
-      // Iterate over the todo keys in the specified order
-      todoKeys.forEach((key) => {
-        const todoDivHTML = sessionStorage.getItem(key);
-        if (todoDivHTML) {
-          // Recreate the todoDiv element by parsing the HTML string
-          const parser = new DOMParser();
-          const parsedTodoDiv = parser.parseFromString(todoDivHTML, "text/html").body.firstChild;
-          parsedTodoDivs.push(parsedTodoDiv);
-        }
-      });
-
-      return parsedTodoDivs;
+  // Iterate over the keys in the specified order
+  todoKeys.forEach((key) => {
+    const todoDivHTML = sessionStorage.getItem(key);
+    if (todoDivHTML) {
+      //basically rebuilds(by parsing) the element and appends it
+      const parser = new DOMParser();
+      const parsedTodoDiv = parser.parseFromString(todoDivHTML, "text/html")
+        .body.firstChild;
+      parsedTodoDivs.push(parsedTodoDiv);
     }
+  });
+
+  return parsedTodoDivs;
+}
